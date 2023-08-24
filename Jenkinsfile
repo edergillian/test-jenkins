@@ -3,7 +3,7 @@ pipeline {
     parameters {
       string(name: 'PLANET', defaultValue: 'Earth', description: 'Which planet are we on?')
       string(name: 'GREETING', defaultValue: 'Hello', description: 'How shall we greet?')
-      string(name: 'branch', defaultValue: 'main', description: 'Ref', regex: '.*')
+      string(name: 'branch', defaultValue: 'main', description: 'Ref')
     }
     triggers {
         parameterizedCron('''
