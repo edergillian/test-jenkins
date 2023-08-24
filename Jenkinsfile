@@ -1,9 +1,9 @@
 pipeline {
     agent any
     parameters {
-      string(name: 'PLANET', defaultValue: 'Earth', description: 'Which planet are we on?')
-      string(name: 'GREETING', defaultValue: 'Hello', description: 'How shall we greet?')
-      string(name: 'branch', defaultValue: 'main', description: 'Ref')
+      string(name: 'PLANET', defaultValue: 'branch', description: 'Which planet are we on?')
+      string(name: 'GREETING', defaultValue: 'Main', description: 'How shall we greet?')
+      string(name: 'branch', defaultValue: 'test', description: 'Ref')
     }
     triggers {
         parameterizedCron('''
