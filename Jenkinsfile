@@ -17,6 +17,7 @@ pipeline {
             steps {
                 echo "${params.GREETING} ${params.PLANET}"
                 script { currentBuild.description = "${params.GREETING} ${params.PLANET}" }
+                sleep 40
             }
         }
     }
