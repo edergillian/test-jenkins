@@ -1,17 +1,13 @@
 pipeline {
     agent any
     parameters {
-      string(name: 'PLANET', defaultValue: 'branch', description: 'Which planet are we on?')
-      string(name: 'GREETING', defaultValue: 'Main', description: 'How shall we greet?')
-      gitParameter(tagFilter: 'v\* main', defaultValue: 'main', name: 'tag', type: 'PT_TAG')
+        gitParameter branchFilter: 'v(.*)', defaultValue: 'main', name: 'branch', type: 'PT_TAG'
     }
     stages {
-        stage('Example') {
+        stage('Hello') {
             steps {
-                git url: 'https://github.com/edergillian/test-jenkins'
-                echo "${params.GREETING} ${params.PLANET}"
-                script { currentBuild.description = "${params.GREETING} ${params.PLANET}" }
-                sleep 40
+                checkout scmGit(branches: [[name: '$branch']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/edergillian/test-jenkins']])
+                echo 'Hello World'
             }
         }
     }
