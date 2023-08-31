@@ -1,6 +1,8 @@
-def BRANCH_CHOICES = ['main', 'build', 'testing']
 pipeline {
     agent any
+    triggers {
+        cron 'H/2 * * * *'
+    }
     stages {
         stage('Hello') {
             steps {
