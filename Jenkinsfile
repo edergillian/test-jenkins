@@ -1,4 +1,4 @@
-def BRANCH_CHOICES = ['main']
+def BRANCH_CHOICES = ['main', 'build', 'testing']
 pipeline {
     agent any
     parameters {
