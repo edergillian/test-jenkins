@@ -1,8 +1,6 @@
+def BRANCH_CHOICES = ['main']
 pipeline {
     agent any
-    environment {
-        BRANCH_CHOICES = ['main']
-    }
     parameters {
         choice(name: 'branch', choices: BRANCH_CHOICES, description: 'Pick a branch to build')
     }
