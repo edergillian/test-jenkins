@@ -1,7 +1,8 @@
 pipeline {
     agent any
+    BRANCH_CHOICES = ['main']
     parameters {
-        gitParameter branchFilter: 'origin/main', tagFilter: 'v*', defaultValue: 'main', name: 'branch', type: 'PT_BRANCH_TAG', sortMode: 'DESCENDING_SMART'
+        choice(name: 'branch', choices: BRANCH_CHOICES, description: 'Pick a branch to build')
     }
     stages {
         stage('Hello') {
